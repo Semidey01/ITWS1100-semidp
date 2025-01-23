@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <style>
         body {
+            /* Background with light contrast to the resume that sets the resume in the middle */
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #f9fbfd; /* Light background for contrast */
+            background-color: #f9fbfd; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -24,18 +25,21 @@
             box-shadow: 0 0 0 0.2px black; /* Creates a fine line "border" */
         }
 
+        /* Styling for the name in the top */
         .name {
             color: darkblue;
             text-align: center;
             font-size: 17px;
         }
 
+        /* Styling for the contact section */
         .contact {
             text-align: center;
             font-size: 11px;
             margin-bottom: 8px;
         }
 
+        /* Styling to identify all sections of the resume */
         .section {
             color: darkblue;
             font-size: 14.5px;
@@ -44,37 +48,44 @@
             margin-top: -9px;
         }
 
+        /* Used h1 for the sections */
         h1 {
             font-size: 11px;
             margin-top: -5px;
             margin-bottom: -12px;
         }
 
+        /* Used h2 for the titles (RPI, Auto Air Parts, Vice President) */
         h2 {
             font-size: 11px;
             margin-top: -5px;
             margin-bottom: -12px;
         }
 
+        /* Used for the text in the Skills and Awards sections */
         h3 {
             font-size: 10px;
             margin-top: -5px;
             font-weight: 90;
         }
 
+        /* Adjusted size for list items */
         li {
             font-size: 10px;
         }
 
+        /* Styling used for the dates to set them to the right */
         .right {
             float: right;
             margin: -1px 0.1px 0px 0px;
         }
 
+        /* Styling used for the dates to make them place the im the same line as tittles */
         .detail {
             display: inline;
         }
 
+        /* Styling used for the text of the dates */
         p {
             font-size: 10px;
             margin-top: -5px;
@@ -82,56 +93,66 @@
             font-weight: bold;
         }
 
+        /* Adjusted margin for the first element of the skills div */
         .p1 {
             font-size: 10px;
             margin-top: -6px;
         }
 
+        /* Adjusted margin for the second element of the skills div */
         .p2 {
             font-size: 10px;
             margin-top: -5px;
             margin-bottom: 17px;
         }
 
+        /* Added a bottom margin for the lines */
         hr {
             margin-bottom: 10px;
         }
 
-
     </style>
+     <!-- Title of web page -->
     <title>Pablo Semidey Resume</title>
 </head>
 <body>
+    <!-- Main container for the resume -->
     <div class="resume-container">
+         <!-- Name and contact section -->
         <div class="name">Pablo Semidey</div>
         <div class="contact">semidp@rpi.edu | semideypablo@gmail.com | 787-667-3739</div>
 
+          <!-- Education section -->
         <div>
             <h1 class="section">Education:</h1>
-            <hr>
+            <hr> <!-- Separator line -->
 
             <div class="detail">
+                 <!-- Rensselaer Polytechnic Institute -->
                 <h2 class="right">May 2028</h2>
                 <h2>Rensselaer Polytechnic Institute (RPI) - Troy, NY</h2>
             </div>
             
-
+            <!-- Description of RPI-->
             <ul>
                 <li>Bachelor of Science in Computer Science and Information Technology and Web Science</li>
                 <li>Coursework: Data Structures, Computer Science 1, Intro to IT & Web Science, Database Development</li>
             </ul>
 
+            <!-- Columbia University -->
             <div class="detail">
                 <h2 class="right">July 2023</h2>
                 <h2>Columbia University - NY, NY</h2>
             </div>
 
+            <!-- Description of Columbia-->
             <ul>
                 <li>Pre-College Program</li>
                 <li>Computer science course focused on the application of data science, machine learning, AI, and Python into the real world.</li>
             </ul>
         </div>
 
+          <!-- Experience section -->
         <div>
             <h1 class="section">Experience:</h1>
             <hr>
@@ -141,57 +162,68 @@
                 <h2>Auto Air Parts of Puerto Rico | Warehouse Worker</h2>
             </div>
 
+            <!-- Description of Auto Air Parts job -->
             <ul>
                 <li>Accurately fulfilled customer orders using a CDI inventory system, ensuring timely and efficient processing.</li>
                 <li>Delegated with cross-functional teams to integrate real-time inventory data from the CDI system, and implemented Agile methodology, enhancing data-driven decisions and increasing order speed by 20%.</li>
             </ul>
         </div>
 
+        <!-- Leadership section -->
         <div>
             <h1 class="section">Leadership:</h1>
             <hr>
 
+            <!-- Committee Understudy -->
             <div class="detail">
                 <h2 class="right">September 2024 - Present </h2>
                 <h2>Fundraising and Education Committees Understudy | SHPE | RPI</h2>
             </div>
 
+            <!-- Description of what I did in committee -->
             <ul>
                 <li>Enhance SHPE’s educational resources and coordinate programs (workshops, beginner series) that benefit over 100 members by supporting academic success and building career skills to advance students’ professional growth.</li>
                 <li>Coordinate fundraisers that donate $2,000+ to philanthropic causes such as Latino Youth Education and Latinas in STEM.</li>
                 <li>Work closely with the operating budget to ensure fund-raising efforts coincide with the needs of the chapter.</li>
             </ul>
 
+            <!-- Vice President -->
             <div class="detail">
                 <h2 class="right">August 2022 - May 2024</h2>
                 <h2>Vice President | Chess Club | Colegio San Ignacio (CSI)</h2>
             </div>
 
+            <!-- Description of what I did as VP-->
             <ul>
                 <li>Established a competitive team that represented CSI in various tournaments, achieving multiple 1st place victories across Puerto Rico.</li>
                 <li>Led the organization of an annual island-wide chess tournament at my high school which hosted over 50 schools, overseeing a budget close to $3,000, and analyzing event logistics.</li>
             </ul>
 
+            <!-- Administrator of Club System -->
             <div class="detail">
                 <h2 class="right">August 2023 - May 2024</h2>
                 <h2>Administrator | Club System | Community Service</h2>
             </div>
 
+            <!-- Description of what I did as Administrator -->
             <ul>
                 <li>Founded a network of 7 extracurricular clubs in an underserved community, managing scheduling, lesson planning, and communications to enhance extracurricular access for underrepresented students.</li>
                 <li>Dedicated over 100 hours to volunteer working as an assistant teacher in chess and soccer classes, increasing the number of students we could handle in each club from 20 to 30, impacting 150+ students.</li>
             </ul>
         </div>
 
+        <!-- Projects section -->
         <div>
             <h1 class="section">Projects:</h1>
             <hr>
 
+            <!-- Morning App -->
             <div class="detail">
                 <h2 class="right">November 2024</h2>
                 <h2>Personalized Morning App | HTML, CSS, JavaScript, Python</h2>
             </div>
 
+            <!-- Description of what I did for the app -->
             <ul>
                 <li>Built a personalized morning app with HTML, CSS, JavaScript, and Python to help adjust to New York’s weather, that integrates real-time weather updates and task management to streamline morning routines for users in Troy, NY.</li>
                 <li>Used Flask for backend development, implementing REST API integration for live weather data, and designed a responsive frontend consisting of 3 interconnected websites to enhance user experience and engagement.</li>
@@ -199,24 +231,30 @@
             </ul>
         </div>
 
+        <!-- Skills section -->
         <div>
             <h1 class="section">Skills:</h1>
             <hr>
 
+            <!-- Description of the skills-->
             <h3 class="p1"><i><b>Programming Languages: </b></i>Python, C++, SQL, JavaScript, HTML, CSS</h3>
             <h3 class="p2"><i><b>Languages: </b></i>English (Fluent), Spanish (Native)</h3>
         </div>
 
+        <!-- Awards section -->
         <div>
             <h1 class="section">Awards:</h1>
             <hr>
 
+            <!-- Outstanding Delegation -->
             <p class="right">2024</p>
             <h3><b>Outstanding Delegation (2nd-3rd) | Model United Nations | University of Pennsylvania</b></h3>
 
+            <!-- Special Recognition -->
             <p class="right">2022</p>
             <h3><b>Special Recognition | Tutoring | Programa Proyecto</b></h3>
 
+            <!-- National Hispanic Award -->
             <p class="right">2023</p>
             <h3><b>National Hispanic Recognition Award | Collegeboard</b></h3>
         </div>
