@@ -1,0 +1,10 @@
+.about h1{
+        color: aliceblue;
+        font-family: 'Times New Roman', Times, serif;
+        text-align: center;
+        font-size: 80px;
+    }
+
+.description li{
+    color: aliceblue;
+}
