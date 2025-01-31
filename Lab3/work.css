@@ -1,0 +1,14 @@
+.work h1{
+    color: aliceblue;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    font-size: 80px;
+}
+
+.itws{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: #36393e;
+  }

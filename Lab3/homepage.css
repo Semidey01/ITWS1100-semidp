@@ -1,0 +1,68 @@
+.name h1{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    font-size: 90px;
+}
+
+.description li{
+    color: aliceblue;
+}
+
+.heading {
+    height: 360px; /* Adjust the height as needed */
+    background-image: url('PR.jpg'); /* Replace with your image path */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column; /* Stack button-text pairs vertically */
+    gap: 29px; /* Add spacing between pairs */
+    margin-left: 90px; /* Add left margin to move content away from the edge */
+}
+
+/* Style each button-text pair */
+.button-text-pair {
+    display: flex;
+    align-items: center; /* Align button and text vertically in the middle */
+    margin-top: 30px;
+    gap: 40px; /* Add spacing between the button and the paragraph */
+}
+
+/* Style the buttons */
+.button-text-pair button {
+    width: 200px; /* Set a fixed width for the buttons */
+    padding: px; /* Add padding inside the buttons */
+    background-color: #36393e; /* Button background color */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    text-align: center; /* Center text inside the button */
+    height: 100px;
+    width: 190px;
+}
+
+/* Style the h2 inside the buttons */
+.button-text-pair button h2 {
+    margin: 0; /* Remove default margin */
+    font-size: 24px; /* Adjust font size */
+}
+
+/* Style the paragraphs */
+.button-text-pair p {
+    margin: 0; /* Remove default margin */
+    font-size: 18px; /* Adjust font size */
+    color: white; /* Text color */
+}
+
+/* Add hover effect */
+.button-text-pair button:hover {
+    background-color: #1e2124; /* Darker background on hover */
+}
