@@ -1,0 +1,94 @@
+@font-face {
+    font-family: 'iceberg', 'Times New Roman', Times, serif;
+    src: url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
+}
+
+.contact h1{
+    color: aliceblue;
+    font-family: iceberg;
+    text-align: center;
+    font-size: 100px;
+}
+
+hr {
+    width: 85%;
+    margin-bottom: 70px;
+    border: 0;
+    height: 2px;
+    background: #a380c2;
+    box-shadow: 0 0 10px #a380c2, 0 0 20px #a380c2, 0 0 30px #a380c2;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Use fractional units for proportional scaling */
+    grid-template-rows: auto; /* Rows will adjust based on content */
+  
+    box-sizing: border-box;
+    width: 70%; /* Take up 70% of the page width */
+    height: 300px; /* You can adjust this or use min-height for flexibility */
+    margin-left: auto;
+    margin-right: auto;
+    gap: 10px;
+    
+    text-align: center;
+    opacity: 0.8;
+    font-family: iceberg;
+}
+
+/* Increase the font size for all text inside the grid */
+.parent h2 {
+    font-size: 1.3em; 
+    color: black;
+}
+
+.parent p {
+    font-size: 1.3em; 
+    color: white;
+    font-style: italic;
+}
+
+.c1 {
+    grid-column: span 2 / span 2; /* Span 2 columns */
+    background-color: #4f8fc5;
+    border-radius: 10px;
+}
+
+.c2 {
+    grid-column: span 2 / span 2; /* Span 2 columns */
+    grid-row-start: 2; /* Start at the second row */
+    background-color: #4f8fc5;
+    border-radius: 10px;
+}
+
+.c3 {
+    grid-column: span 2 / span 2; /* Span 2 columns */
+    grid-row-start: 3; /* Start at the third row */
+    background-color: #4f8fc5;
+    border-radius: 10px;
+    height: 100px; /* Fixed height, or use min-height for flexibility */
+}
+
+.c4 {
+    grid-row: span 3 / span 3; /* Span 3 rows */
+    grid-column-start: 3; /* Start at the third column */
+    grid-row-start: 1; /* Start at the first row */
+    background-color: #4f8fc5;
+    border-radius: 10px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 8px;
+}
+
+a:hover {
+    color: black;
+
+}

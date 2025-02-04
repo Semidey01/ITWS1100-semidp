@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'iceberg', 'Times New Roman', Times, serif;
+    src: url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
+}
+
+.about h1{
+        color: white;
+        font-family: iceberg;
+        text-align: center;
+        font-size: 100px;
+    }
+
+.about hr {
+    width: 90%;
+    border: 0;
+    height: 2px;
+    background: #a380c2;
+    box-shadow: 0 0 10px #a380c2, 0 0 20px #a380c2, 0 0 30px #a380c2;
+}
+
+hr {
+    width: 70%;
+    border: 0;
+    height: 2px;
+    background: #a380c2;
+    box-shadow: 0 0 10px #a380c2, 0 0 20px #a380c2, 0 0 30px #a380c2;
+}
+    
+.facts {
+    display: flex;
+    justify-content: center;
+}
+
+.icon-text {
+    display: flex;
+    align-items: center; /* Align icon and text horizontally */
+    justify-content: center; /* Center the content horizontally */
+    gap: 10px; /* Add spacing between icon and text */
+    color: white;
+    font-family: 'Iceberg', sans-serif;
+    font-size: 50px;
+    margin-bottom: -25px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+}
+
+.details {
+    font-style: italic;
+    font-family: iceberg;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column; /* Stack text vertically */
+    font-size: 30px; /* Adjust font size for the details */
+    gap: 5px; /* Add spacing between paragraphs */
+    margin-top: 10px; /* Add spacing between "Hobbies" and details */
+}
