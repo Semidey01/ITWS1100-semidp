@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'iceberg', 'Times New Roman', Times, serif;
+    src: url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
+}
+
+.labs h1 {
+    color: aliceblue;
+    font-family: iceberg;
+    text-align: center;
+    font-size: 100px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown h1 {
+    color: white;
+    font-size: 25px;
+    margin-left: 30px;
+    font-style: italic;
+    cursor: pointer;
+    font-family: iceberg;
+}
+
+.dropdown h1:hover {
+    color: #a380c2;
+}
+
+.dropdown-content {
+    display: flex; /* Display as flex by default */
+    flex-direction: row; /* Horizontal layout */
+    gap: 10px; /* Space between items */
+    max-height: 0; /* Start collapsed */
+    overflow: hidden; /* Hide overflow */
+    background-color: #4f8fc5;
+    margin-left: 30px;
+    border-radius: 5px;
+    padding: 0 10px; /* Padding for the container */
+    transition: max-height 0.3s ease, padding 0.3s ease; /* Smooth transition */
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    white-space: nowrap; /* Prevent text from wrapping */
+    font-family: iceberg;
+}
+
+.dropdown-content a:hover {
+    background-color: #a380c2;
+}
+
+/* Expand the dropdown when the h1 is hovered */
+.dropdown:hover .dropdown-content {
+    max-height: 50px; /* Adjust based on content height */
+}
+
+hr {
+    width: 85%;
+    margin-bottom: 70px;
+    border: 0;
+    height: 2px;
+    background: #a380c2;
+    box-shadow: 0 0 10px #a380c2, 0 0 20px #a380c2, 0 0 30px #a380c2;
+}

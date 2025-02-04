@@ -1,0 +1,101 @@
+@font-face {
+    font-family: 'iceberg', 'Times New Roman', Times, serif;
+    src: url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
+}
+
+.name h1{
+    color: white;
+    font-family: 'iceberg';
+    text-align: center;
+    font-size: 130px;
+}
+
+.description li{
+    color: aliceblue;
+}
+
+.heading {
+    height: 650px; /* Adjust the height as needed */
+    background-image: url('/Lab3/images/y.jpg'); /* Replace with your image path */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the image */
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    gap: 100px; /* Space between buttons */
+    margin-top: 50px;
+    margin-bottom: 200px;
+}
+
+.button-text-pair {
+    position: relative;
+    text-align: center; /* Center-align button and description */
+}
+
+/* Style the buttons */
+.button-text-pair button {
+    width: 250px;
+    padding: 20px;
+    background-color: #a380c2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    height: 200px;
+    font-family: iceberg;
+    transition: background-color 0.3s, transform 0.2s; /* Added transform for hover effect */
+}
+
+/* Remove default margin for h2 inside buttons */
+.button-text-pair button h2 {
+    margin: 0;
+    font-size: 45px;
+}
+
+/* Description text (hidden by default) */
+.button-text-pair p {
+    display: block; /* Changed to block for animation */
+    position: absolute;
+    top: 100%; /* Start below the button */
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px); /* Start slightly above final position */
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    width: 220px;
+    font-size: 16px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 10; /* Ensure description appears above other elements */
+    opacity: 0; /* Start hidden for fade-in effect */
+    font-family: iceberg;
+    transition: opacity 0.4s ease-in-out, transform 0.3s ease-in-out; /* Smooth fade-in and slide */
+}
+
+/* Show text when hovering over the button */
+.button-text-pair:hover p {
+    opacity: 1; /* Fade in */
+    transform: translateX(-50%) translateY(30%); /* Move to final position */
+}
+
+/* Button hover effect */
+.button-text-pair button:hover {
+    background-color: #4f8fc5;
+
+    ;
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Accessibility: Focus styles for keyboard navigation */
+.button-text-pair button:focus {
+    outline: 2px solid #4a90e2; /* Highlight for focus */
+    outline-offset: 2px;
+}
