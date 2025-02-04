@@ -16,7 +16,7 @@
 
 .heading {
     height: 650px; /* Adjust the height as needed */
-    background-image: url('Lab3/images/y.jpg'); /* Replace with your image path */
+    background-image: url('../images/y.jpg'); /* Replace with your image path */
     background-size: cover; /* Cover the entire section */
     background-position: center; /* Center the image */
     background-attachment: fixed;
