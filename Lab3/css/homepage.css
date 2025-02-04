@@ -99,3 +99,26 @@
     outline: 2px solid #4a90e2; /* Highlight for focus */
     outline-offset: 2px;
 }
+
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #a380c2;
+    height: 150px;
+    width: 200px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+h2 {
+    font-family: iceberg;
+    font-size: 50px;
+}
+
+.button-link:hover {
+    background-color: #0056b3;
+}
