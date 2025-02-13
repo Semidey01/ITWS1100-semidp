@@ -1,0 +1,10 @@
+/* Ensure every tag is on a separate line without using blocks */
+feed, title, link, updated, author, name, id, entry, summary{
+    white-space: pre; /* Preserves whitespace and line breaks */
+}
+
+/* Style for the title */
+title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
