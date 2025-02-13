@@ -8,9 +8,7 @@ Linked both feeds to my website.
 
 Reflection:
 
-This was a more relaxing lab compared to the last one in terms of time consumption.
-
-It was interesting learning about XML and the differences between it and HTML
+This was a more relaxing lab compared to the last one in terms of time consumption. It was interesting learning about XML and the differences between it and HTML. Styling XML provided more difficult than I imagined as I couldn't use a block display and normal methods were not working.
 
 Learned the following:
  - How to create XML files
