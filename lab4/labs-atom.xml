@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="atom.css"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>ITWS Labs</title>
   <link href="http://semidprpi.eastus.cloudapp.azure.com/iit" />
@@ -14,7 +15,6 @@
     <id>urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a</id>
     <updated>2025-01-16T12:00:00Z</updated>
     <summary>Created my GitHub account, created my Azure VM, and connected my class repository to the VM.</summary>
-    <content type="html">This lab involved setting up a GitHub account, creating an Azure VM, and linking the class repository to the VM.</content>
   </entry>
 
   <entry>
@@ -23,7 +23,6 @@
     <id>urn:uuid:1225c695-cfb8-4ebb-bbbb-80da344efa6b</id>
     <updated>2025-01-23T12:00:00Z</updated>
     <summary>Created my resume using HTML and CSS.</summary>
-    <content type="html">This lab involved creating a resume using HTML and CSS to structure and style the content.</content>
   </entry>
 
   <entry>
@@ -32,7 +31,6 @@
     <id>urn:uuid:1225c695-cfb8-4ebb-cccc-80da344efa6c</id>
     <updated>2025-02-03T12:00:00Z</updated>
     <summary>Created my personal website that includes a homepage, my projects, contact info, and personal info using HTML and CSS.</summary>
-    <content type="html">This lab involved creating a personal website with multiple pages, including a homepage, projects, contact info, and personal details, using HTML and CSS.</content>
   </entry>
 
   <entry>
@@ -41,6 +39,5 @@
     <id>urn:uuid:1225c695-cfb8-4ebb-dddd-80da344efa6d</id>
     <updated>2025-02-13T12:00:00Z</updated>
     <summary>Created RSS and Atom feeds for my ITWS labs.</summary>
-    <content type="html">This lab involved creating RSS and Atom feeds to syndicate updates for the ITWS labs.</content>
   </entry>
 </feed>
