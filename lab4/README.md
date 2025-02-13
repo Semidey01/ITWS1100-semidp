@@ -16,3 +16,4 @@ Learned the following:
  - How to create XML files
  - How the RSS format works
  - How the Atom format works.
+ - How to style xml files using css
