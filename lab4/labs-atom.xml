@@ -20,7 +20,7 @@
   <entry>
     <title>Lab 2: Create your Resume</title>
     <link href="http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html" />
-    <id>urn:uuid:1225c695-cfb8-4ebb-bbbb-80da344efa6b</id>
+    <id>urn:uuid:5a38c840-e134-424f-9b8e-e54a3ecb74d0</id>
     <updated>2025-01-23T12:00:00Z</updated>
     <summary>Created my resume using HTML and CSS.</summary>
   </entry>
@@ -28,7 +28,7 @@
   <entry>
     <title>Lab 3: Create a personal website</title>
     <link href="http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html" />
-    <id>urn:uuid:1225c695-cfb8-4ebb-cccc-80da344efa6c</id>
+    <id>urn:uuid:19ea8a1a-ffd2-48d2-8717-7a081bbb15b9</id>
     <updated>2025-02-03T12:00:00Z</updated>
     <summary>Created my personal website that includes a homepage, my projects, contact info, and personal info using HTML and CSS.</summary>
   </entry>
@@ -36,7 +36,7 @@
   <entry>
     <title>Lab 4: Create an RSS and Atom feed</title>
     <link href="http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html" />
-    <id>urn:uuid:1225c695-cfb8-4ebb-dddd-80da344efa6d</id>
+    <id>urn:uuid:7a8df6ae-d328-45a4-897c-2dc81786f3e3</id>
     <updated>2025-02-13T12:00:00Z</updated>
     <summary>Created RSS and Atom feeds for my ITWS labs.</summary>
   </entry>
