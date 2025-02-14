@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Link to external CSS for feed styling -->
 <?xml-stylesheet href="atom.css"?>
+
+<!-- Atom feed root element -->
 <feed xmlns="http://www.w3.org/2005/Atom">
+  <!-- Feed title -->
   <title>ITWS Labs</title>
+  <!-- Link to associated website -->
   <link href="http://semidprpi.eastus.cloudapp.azure.com/iit" />
+  <!-- Feed last update timestamp -->
   <updated>2025-02-13T12:00:00Z</updated>
+  <!-- Feed author -->
   <author>
     <name>Pablo Semidey</name>
   </author>
+  <!-- Unique feed ID -->
   <id>urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6</id>
 
+  <!-- Lab 1 entry -->
   <entry>
     <title>Lab 1: GitHub and Azure VM setup</title>
+    <!-- Link to lab details -->
     <link href="http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html" />
+    <!-- Unique entry ID -->
     <id>urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a</id>
+    <!-- Entry last update timestamp -->
     <updated>2025-01-16T12:00:00Z</updated>
+    <!-- Brief summary of the entry -->
     <summary>Created my GitHub account, created my Azure VM, and connected my class repository to the VM.</summary>
   </entry>
 
+  <!-- Lab 2 entry -->
   <entry>
     <title>Lab 2: Create your Resume</title>
     <link href="http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html" />
@@ -25,6 +39,7 @@
     <summary>Created my resume using HTML and CSS.</summary>
   </entry>
 
+  <!-- Lab 3 entry -->
   <entry>
     <title>Lab 3: Create a personal website</title>
     <link href="http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html" />
@@ -33,6 +48,7 @@
     <summary>Created my personal website that includes a homepage, my projects, contact info, and personal info using HTML and CSS.</summary>
   </entry>
 
+  <!-- Lab 4 entry -->
   <entry>
     <title>Lab 4: Create an RSS and Atom feed</title>
     <link href="http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html" />
