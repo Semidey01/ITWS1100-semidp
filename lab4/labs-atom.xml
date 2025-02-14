@@ -21,7 +21,7 @@
   <entry>
     <title>Lab 1: GitHub and Azure VM setup</title>
     <!-- Link to lab details -->
-    <link href="http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html" />
+    <link href="http://semidprpi.eastus.cloudapp.azure.com/iit/Lab3/html/labs.html" />
     <!-- Unique entry ID -->
     <id>urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a</id>
     <!-- Entry last update timestamp -->
@@ -33,7 +33,7 @@
   <!-- Lab 2 entry -->
   <entry>
     <title>Lab 2: Create your Resume</title>
-    <link href="http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html" />
+    <link href="http://semidprpi.eastus.cloudapp.azure.com/iit/Lab3/html/labs.html" />
     <id>urn:uuid:5a38c840-e134-424f-9b8e-e54a3ecb74d0</id>
     <updated>2025-01-23T12:00:00Z</updated>
     <summary>Created my resume using HTML and CSS.</summary>
@@ -42,7 +42,7 @@
   <!-- Lab 3 entry -->
   <entry>
     <title>Lab 3: Create a personal website</title>
-    <link href="http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html" />
+    <link href="http://semidprpi.eastus.cloudapp.azure.com/iit/Lab3/html/labs.html" />
     <id>urn:uuid:19ea8a1a-ffd2-48d2-8717-7a081bbb15b9</id>
     <updated>2025-02-03T12:00:00Z</updated>
     <summary>Created my personal website that includes a homepage, my projects, contact info, and personal info using HTML and CSS.</summary>
