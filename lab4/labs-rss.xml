@@ -9,34 +9,34 @@
 
     <item>
       <title>Lab 1: GitHub and Azure VM setup</title>
-      <link>http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html</link>
+      <link>http://semidprpi.eastus.cloudapp.azure.com/iit/Lab3/html/labs.html</link>
       <description>Created my GitHub account, created my Azure VM, and connected my class repository to the VM.</description>
       <pubDate>Thu, 16 Jan 2025 12:00:00 GMT</pubDate>
-      <guid>http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html</guid>
+      <guid>http://semidprpi.eastus.cloudapp.azure.com/iit/Lab3/html/labs.html</guid>
     </item>
 
     <item>
       <title>Lab 2: Create your Resume</title>
-      <link>http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html</link>
+      <link>http://semidprpi.eastus.cloudapp.azure.com/iit/Lab3/html/labs.html</link>
       <description>Created my resume using HTML and CSS.</description>
       <pubDate>Thu, 23 Jan 2025 12:00:00 GMT</pubDate>
-      <guid>http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html</guid>
+      <guid>http://semidprpi.eastus.cloudapp.azure.com/iit/Lab3/html/labs.html</guid>
     </item>
 
     <item>
       <title>Lab 3: Create a personal website</title>
-      <link>http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html</link>
+      <link>http://semidprpi.eastus.cloudapp.azure.com/iit/Lab3/html/labs.html</link>
       <description>Created my personal website that includes a homepage, my projects, contact info, and personal info using HTML and CSS.</description>
       <pubDate>Mon, 03 Feb 2025 12:00:00 GMT</pubDate>
-      <guid>http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html</guid>
+      <guid>http://semidprpi.eastus.cloudapp.azure.com/iit/Lab3/html/labs.html</guid>
     </item>
 
     <item>
       <title>Lab 4: Create an RSS and Atom feed</title>
-      <link>http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html</link>
+      <link>http://semidprpi.eastus.cloudapp.azure.com/iit/Lab3/html/labs.html</link>
       <description>Created RSS and Atom feeds for my ITWS labs.</description>
       <pubDate>Thu, 13 Feb 2025 12:00:00 GMT</pubDate>
-      <guid>http://semidprpi.eastus.cloudapp.azure.com/iit/labs.html</guid>
+      <guid>http://semidprpi.eastus.cloudapp.azure.com/iit/Lab3/html/labs.html</guid>
     </item>
   </channel>
 </rss>
