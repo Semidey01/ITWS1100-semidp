@@ -71,3 +71,11 @@ function showName() {
    }
 }
 
+function focusName() {
+    var element = document.getElementById("firstName");
+    element.focus();
+}
+
+window.onload = function() {
+    focusName();
+}
