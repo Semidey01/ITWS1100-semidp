@@ -1,3 +1,7 @@
+Website landing page: http://semidprpi.eastus.cloudapp.azure.com/iit/
+user: semidp
+password: Antonio00!1074
+
 In this lab I learnt some of the basics in html like pulling information from the html file,
 creating variables, using window events such as onload, and creating functions and implementing them in HTML.
 
