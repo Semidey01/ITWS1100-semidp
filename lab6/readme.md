@@ -1,12 +1,12 @@
 # Lab 6 - JavaScript and jQuery
 
-### In this lab I had to use JQuery to make an HTML page more dynamic. 
+#### In this lab I had to use JQuery to make an HTML page more dynamic. 
 
-### landing page: http://semidprpi.eastus.cloudapp.azure.com/iit/lab6/lab6.html
+#### landing page (lab 6): http://semidprpi.eastus.cloudapp.azure.com/iit/lab6/lab6.html
 
-### website page: http://semidprpi.eastus.cloudapp.azure.com/iit/
+#### website page: http://semidprpi.eastus.cloudapp.azure.com/iit/
 
-### password: Antonio00!1074
+#### password: Antonio00!1074
 
 ## SUMMARY
 
