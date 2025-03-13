@@ -2,6 +2,12 @@
 
 ### In this lab I had to use JQuery to make an HTML page more dynamic. 
 
+### landing page: http://semidprpi.eastus.cloudapp.azure.com/iit/lab6/lab6.html
+
+### website page: http://semidprpi.eastus.cloudapp.azure.com/iit/
+
+### password: Antonio00!1074
+
 ## SUMMARY
 
 1. Used .text and .css to change the syle of 'Your Name' When You click on it.
