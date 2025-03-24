@@ -2,7 +2,7 @@
 
 In this quiz I had to create an XML that contained a books collection with 5 different books, including their author and their description.
 
-I also had to create another file tht used this collection as JSON, and write a JS script that would add these books to a list and when you hover over an item in the list their author gets appended.
+I also had to create another file tht used this collection as JSON, and write a JS script that would add these books to a list and when you hover over an item in the list their author gets appended. I used JQuery to do all this, and included it into books.html, just so I wouldn't have that many files to worry about.
 
 There's also the word document where the other questions of the quiz are answered.
 
