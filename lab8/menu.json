@@ -20,30 +20,30 @@
       },
       {
          "name": "Lab 4 - XML (RSS and Atom)",
-         "readme": "../../Lab4/README.md",
-         "rss": "../../Lab4/labs-rss.xml",
-         "atom": "../../Lab4/labs-atom.xml"
+         "readme": "../../lab4/README.md",
+         "rss": "../../lab4/labs-rss.xml",
+         "atom": "../../lab4/labs-atom.xml"
       },
       {
          "name": "Lab 5 - JavaScript Form",
-         "readme": "../../Lab5/README.md",
-         "form": "../../Lab5/lab5.html",
-         "formjs": "../../Lab5/lab5.js"
+         "readme": "../../lab5/README.md",
+         "form": "../../lab5/lab5.html",
+         "formjs": "../../lab5/lab5.js"
       },
       {
          "name": "Lab 6 - JQuery Practice",
-         "readme": "../../Lab6/README.md",
-         "jquery": "../../Lab6/lab6.html",
-         "jqueryjs": "../../Lab6/lab6.js"
+         "readme": "../../lab6/README.md",
+         "jquery": "../../lab6/lab6.html",
+         "jqueryjs": "../../lab6/lab6.js"
       },
       {
          "name": "Lab 7 - Term Project Mockup"
       },
       {
          "name": "Lab 8 - JSON and AJAX",
-         "readme": "../../Lab8/README.md",
-         "json": "../../Lab8/menu.json",
-         "ajaxjs": "../../Lab8/menu.js"
+         "readme": "../../lab8/README.md",
+         "json": "../../lab8/menu.json",
+         "ajaxjs": "../../lab8/menu.js"
       }
    ]
 }
