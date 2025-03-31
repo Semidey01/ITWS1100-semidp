@@ -1,7 +1,7 @@
 body {
     background-color: #06060d;
     margin: 0; /* Remove default body margin */
-    font-family: Arial, sans-serif; /* Add a default font */
+    font-family: Arial, Helvetica, sans-serif; /* Add a default font */
     padding-top: 65px; /* Add padding to avoid overlap with the fixed header */
 }
 

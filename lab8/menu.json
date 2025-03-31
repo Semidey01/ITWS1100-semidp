@@ -1,0 +1,49 @@
+{
+   "menuItem": [
+      {
+         "name": "Lab 1 - GitHub and Azure VM Setup",
+         "readme": "../../Lab1/README.md",
+         "github": "../../Lab 1/semidp-GitHubInfo.png",
+         "azure": "../../Lab 1/semidp-AzureStatus.png",
+         "print": "../../Lab 1/semidp-HelloWorld.pdf",
+         "php": "../../Lab 1/semidp-PHPMyAdmin.pdf"
+      },
+      {
+         "name": "Lab 2 - Create Your Resume",
+         "readme": "../../Lab2/README.md",
+         "resume": "../../Lab2/Resume.html"
+      },
+      {
+         "name": "Lab 3 - Create a Website",
+         "readme": "../README.md",
+         "website": "../../index.html"
+      },
+      {
+         "name": "Lab 4 - XML (RSS and Atom)",
+         "readme": "../../Lab4/README.md",
+         "rss": "../../Lab4/labs-rss.xml",
+         "atom": "../../Lab4/labs-atom.xml"
+      },
+      {
+         "name": "Lab 5 - JavaScript Form",
+         "readme": "../../Lab5/README.md",
+         "form": "../../Lab5/lab5.html",
+         "formjs": "../../Lab5/lab5.js"
+      },
+      {
+         "name": "Lab 6 - JQuery Practice",
+         "readme": "../../Lab6/README.md",
+         "jquery": "../../Lab6/lab6.html",
+         "jqueryjs": "../../Lab6/lab6.js"
+      },
+      {
+         "name": "Lab 7 - Term Project Mockup"
+      },
+      {
+         "name": "Lab 8 - JSON and AJAX",
+         "readme": "../../Lab8/README.md",
+         "json": "../../Lab8/menu.json",
+         "ajaxjs": "../../Lab8/menu.js"
+      }
+   ]
+}

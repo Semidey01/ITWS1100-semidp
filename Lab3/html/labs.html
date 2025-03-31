@@ -5,95 +5,33 @@
         <meta charset="UTF-8">
         
         <!-- Linking external CSS files -->
-        <link rel="stylesheet" href="../css/top.css"> <!-- Styles for the top navigation -->
-        <link rel="stylesheet" href="../css/labs.css"> <!-- Styles for the labs section -->
+        <link rel="stylesheet" href="../css/top.css">
+        <link rel="stylesheet" href="../css/labs.css">
         
-        <!-- Linking Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
-        
-        <!-- Title of the webpage -->
         <title>Pablo Semidey Website</title>
     </head>
     <body>
         <!-- Top navigation bar -->
         <div class="top">
             <ul>
-                <li><a href="../../index.html">Home</a></li> <!-- Link to the home page -->
-                <li><a href="about.html">About Me</a></li> <!-- Link to the about page -->
-                <li><a href="work.html">Work</a></li> <!-- Link to the work page -->
-                <li><a href="contact.html">Contact</a></li> <!-- Link to the contact page -->
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
 
         <!-- Labs section -->
         <div class="labs">
-            <h1>Labs</h1> <!-- Heading for the Labs section -->
-            <hr> <!-- Horizontal line separator -->
+            <h1>Labs</h1>
+            <hr>
         </div>
 
-        <!-- List of labs with dropdown content -->
-        <div class="list">
-            <!-- Lab 1 dropdown -->
-            <div class="dropdown">
-                <h1>Lab 1 - GitHub and Azure VM Setup</h1> <!-- Lab 1 title -->
-                <div class="dropdown-content">
-                    <a href="../../Lab 1/semidp-GitHubInfo.png">GitHub Account</a> <!-- Link to GitHub account screenshot -->
-                    <a href="../../Lab 1/semidp-HelloWorld.pdf">Hello World</a> <!-- Link to Hello World PDF -->
-                    <a href="../../Lab 1/semidp-PHPMyAdmin.pdf">PHP</a> <!-- Link to PHP PDF -->
-                    <a href="../../Lab 1/semidp-AzureStatus.png">Azure Status</a> <!-- Link to Azure status screenshot -->
-                </div>
-            </div>
-
-            <!-- Lab 2 dropdown -->
-            <div class="dropdown">
-                <h1>Lab 2 - Create your Resume</h1> <!-- Lab 2 title -->
-                <div class="dropdown-content">
-                    <a href="../../Lab2/README.md">README</a> <!-- Link to Lab 2 README file -->
-                    <a href="../../Lab2/Resume.html">Resume</a> <!-- Link to Resume HTML file -->
-                </div>
-            </div>
-
-            <!-- Lab 3 dropdown -->
-            <div class="dropdown">
-                <h1>Lab 3 - Create a Website</h1> <!-- Lab 3 title -->
-                <div class="dropdown-content">
-                    <a href="../README.md">README</a> <!-- Link to Lab 3 README file -->
-                    <a href="../../index.html">Website</a> <!-- Link to the main website -->
-                </div>
-            </div>
-
-            <!-- Lab 4 dropdown -->
-            <div class="dropdown">
-                <h1>Lab 4 - XML (RSS and Atom)</h1> <!-- Lab 2 title -->
-                <div class="dropdown-content">
-                    <a href="../../lab4/README.md">README</a> <!-- Link to Lab 4 README file -->
-                    <a href="../../lab4/labs-atom.xml">Atom File</a> <!-- Link to XML Atom file -->
-                    <a href="../../lab4/labs-rss.xml">RSS File</a> <!-- Link to XML RSS file -->
-                </div>
-            </div>
-
-            <!-- Lab 5 dropdown -->
-            <div class="dropdown">
-                <h1>Lab 5 - JavaScript Form</h1> <!-- Lab 2 title -->
-                <div class="dropdown-content">
-                    <a href="../../lab5/README.md">README</a> <!-- Link to Lab 4 README file -->
-                    <a href="../../lab5/lab5.html">Form</a> <!-- Link to XML Atom file -->
-                    <a href="../../lab5/lab5.js">JavaScript</a> <!-- Link to XML RSS file -->
-                </div>
-            </div>
-
-            <!-- Lab 5 dropdown -->
-            <div class="dropdown">
-                <h1>Lab 6 - JQuery Practice</h1> <!-- Lab 2 title -->
-                <div class="dropdown-content">
-                    <a href="../../lab6/readme.md">README</a> <!-- Link to Lab 6 README file -->
-                    <a href="../../lab6/lab6.html">HTML</a> <!-- Link to HTML file -->
-                    <a href="../../lab6/lab6.js">JavaScript</a> <!-- Link to JavaScript file -->
-                    <a href="../../lab6/lab6.css">CSS</a> <!-- Link to CSS file -->
-                </div>
-            </div>
-        </div>
+        <!-- List of labs-->
+        <div id="menu"></div>
+        
+        <!-- Load jQuery first, then your script -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="../../lab8/menu.js"></script>
     </body>
 </html>
