@@ -1,11 +1,6 @@
-@font-face {
-    font-family: 'iceberg', 'Times New Roman', Times, serif;
-    src: url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
-}
 
 .work h1 {
     color: aliceblue;
-    font-family: iceberg;
     text-align: center;
     font-size: 100px;
 }
@@ -13,7 +8,6 @@
 .itws {
     text-align: center;
     color: white;
-    font-family: iceberg;
 }
 
 .itws h2 {
@@ -42,7 +36,6 @@
     border-radius: 40px;
     cursor: pointer;
     font-size: 18px;
-    font-family: iceberg;
     transition: background-color 0.3s;
 }
 
@@ -67,7 +60,7 @@
     text-decoration: none;
     display: block;
     transition: background-color 0.3s;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .dropdown-content a:hover {

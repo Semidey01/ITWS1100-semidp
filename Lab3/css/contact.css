@@ -1,11 +1,6 @@
-@font-face {
-    font-family: 'iceberg', 'Times New Roman', Times, serif;
-    src: url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
-}
 
 .contact h1{
     color: aliceblue;
-    font-family: iceberg;
     text-align: center;
     font-size: 100px;
 }
@@ -33,7 +28,6 @@ hr {
     
     text-align: center;
     opacity: 0.8;
-    font-family: iceberg;
 }
 
 /* Increase the font size for all text inside the grid */

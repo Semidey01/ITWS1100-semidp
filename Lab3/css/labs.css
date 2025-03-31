@@ -1,13 +1,12 @@
-@font-face {
-    font-family: 'iceberg', 'Times New Roman', Times, serif;
-    src: url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
-}
 
 .labs h1 {
     color: aliceblue;
-    font-family: iceberg;
     text-align: center;
     font-size: 100px;
+}
+
+h2 {
+    color: white;
 }
 
 .list {
@@ -27,7 +26,6 @@
     margin-left: 30px;
     font-style: italic;
     cursor: pointer;
-    font-family: iceberg;
 }
 
 .dropdown h1:hover {
@@ -53,7 +51,6 @@
     text-decoration: none;
     font-size: 18px;
     white-space: nowrap; /* Prevent text from wrapping */
-    font-family: iceberg;
 }
 
 .dropdown-content a:hover {

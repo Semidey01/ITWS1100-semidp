@@ -50,7 +50,6 @@
     cursor: pointer;
     text-align: center;
     height: 200px;
-    font-family: iceberg;
     transition: background-color 0.3s, transform 0.2s; /* Added transform for hover effect */
 }
 
@@ -76,7 +75,6 @@
     text-align: center;
     z-index: 10; /* Ensure description appears above other elements */
     opacity: 0; /* Start hidden for fade-in effect */
-    font-family: iceberg;
     transition: opacity 0.4s ease-in-out, transform 0.3s ease-in-out; /* Smooth fade-in and slide */
 }
 
@@ -115,7 +113,6 @@
 }
 
 h2 {
-    font-family: iceberg;
     font-size: 50px;
 }
 

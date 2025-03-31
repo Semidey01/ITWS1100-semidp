@@ -1,11 +1,6 @@
-@font-face {
-    font-family: 'iceberg', 'Times New Roman', Times, serif;
-    src: url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
-}
 
 .about h1{
         color: white;
-        font-family: iceberg;
         text-align: center;
         font-size: 100px;
     }
@@ -37,7 +32,6 @@ hr {
     justify-content: center; /* Center the content horizontally */
     gap: 10px; /* Add spacing between icon and text */
     color: white;
-    font-family: 'Iceberg', sans-serif;
     font-size: 50px;
     margin-bottom: -25px;
 }
@@ -49,7 +43,6 @@ hr {
 
 .details {
     font-style: italic;
-    font-family: iceberg;
     color: white;
     display: flex;
     align-items: center;
