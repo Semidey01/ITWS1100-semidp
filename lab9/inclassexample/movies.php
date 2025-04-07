@@ -68,7 +68,6 @@ if ($havePost) {
       echo '</script>';
    } else {
       if ($dbOk) {
-         // Let's trim the input for inserting into mysql
          $titleForDb = trim($_POST["title"]);
          $yearForDb = trim($_POST["year"]);
 
