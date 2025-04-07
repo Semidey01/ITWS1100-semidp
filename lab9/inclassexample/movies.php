@@ -52,7 +52,7 @@ if ($havePost) {
       $errors .= '<li>Year may not be blank</li>';
       if ($focusId == '') $focusId = '#year';
    }
-   if (!is_numeric($year) {
+   if (!is_numeric($year)) {
       $errors .= '<li>Year must be a number</li>';
       if ($focusId == '') $focusId = '#year';
    }
@@ -73,7 +73,7 @@ if ($havePost) {
          $yearForDb = trim($_POST["year"]);
 
          // Setup a prepared statement
-         $insQuery = "insert into mov.es (title, year) values(?,?)";
+         $insQuery = "insert into movies (title, year) values(?,?)";
          $statement = $db->prepare($insQuery);
          // bind our variables to the question marks
          $statement->bind_param("si", $titleForDb, $yearForDb);
@@ -115,7 +115,7 @@ if ($havePost) {
 <table id="movieTable">
    <?php
    if ($dbOk) {
-      $query = 'select * from mov.es order by year';
+      $query = 'select * from movies order by year';
       $result = $db->query($query);
       $numRecords = $result->num_rows;
 
