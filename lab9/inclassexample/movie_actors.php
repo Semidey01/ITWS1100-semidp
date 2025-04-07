@@ -34,15 +34,16 @@
 <table id="movieTable">
 <?php
   if ($dbOk) {
-    $query = 'SELECT m.*, a.*
-    FROM movies m
-    JOIN movie_actors ma ON m.movieid = ma.movieid
-    JOIN actors a ON ma.actorid = a.actorid';
+    $query = 'SELECT m.movieid, m.title, m.year, a.actorid, a.first_names, a.last_name, a.dob
+              FROM movies m
+              JOIN movie_actors ma ON m.movieid = ma.movieid
+              JOIN actors a ON ma.actorid = a.actorid
+              ORDER BY m.title, a.last_name';
     
     $result = $db->query($query);
     $numRecords = $result->num_rows;
 
-    echo '<tr><th>Title:</th><th>Year:</th><th>Actor First Name:</th><th>Actor Last Name:</th></tr>';
+    echo '<tr><th>Title:</th><th>Year:</th><th>Actor First Name:</th><th>Actor Last Name:</th><th>Date of Birth:</th></tr>';
 
     for ($i = 0; $i < $numRecords; $i++) {
       $record = $result->fetch_assoc();
@@ -50,13 +51,9 @@
       echo "\n<tr class=\"$rowClass\" id=\"movie-{$record['movieid']}\">";
       echo '<td>' . htmlspecialchars($record['title']) . '</td>';
       echo '<td>' . htmlspecialchars($record['year']) . '</td>';
-      
-      // Check if 'firstname' and 'lastname' keys exist and are not null
-      $firstname = isset($record['firstName']) ? htmlspecialchars($record['firstName']) : '';
-      $lastname = isset($record['lastName']) ? htmlspecialchars($record['lastName']) : '';
-  
-      echo '<td>' . $firstname . '</td>';
-      echo '<td>' . $lastname . '</td>';
+      echo '<td>' . htmlspecialchars($record['first_names']) . '</td>';
+      echo '<td>' . htmlspecialchars($record['last_name']) . '</td>';
+      echo '<td>' . htmlspecialchars($record['dob']) . '</td>';
       echo '</tr>';
     }
 
@@ -64,8 +61,7 @@
 
     // Finally, let's close the database
     $db->close();
-}
-
+  }
 ?>
 </table>
 <?php include('includes/foot.inc.php'); 
