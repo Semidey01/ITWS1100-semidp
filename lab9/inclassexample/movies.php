@@ -92,7 +92,7 @@ if ($havePost) {
 ?>
 
 <h3>Add Movie</h3>
-<form id="addForm" name="addForm" action="movies.php" method="post" onsubmit="return validate(this);">
+<form id="addForm" name="addForm" action="movies.php" method="post" onsubmit="return validateMovie(this);">
    <fieldset>
       <div class="formData">
 
@@ -123,9 +123,9 @@ if ($havePost) {
       for ($i = 0; $i < $numRecords; $i++) {
          $record = $result->fetch_assoc();
          if ($i % 2 == 0) {
-            echo "\n" . '<tr id="movie-' . $record['movield'] . '"><td>';
+            echo "\n" . '<tr id="movie-' . $record['movieid'] . '"><td>';
          } else {
-            echo "\n" . '<tr class="odd" id="movie-' . $record['movield'] . '"><td>';
+            echo "\n" . '<tr class="odd" id="movie-' . $record['movieid'] . '"><td>';
          }
          echo htmlspecialchars($record['title']);
          echo '</td><td>';
