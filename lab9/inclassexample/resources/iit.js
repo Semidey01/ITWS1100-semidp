@@ -26,6 +26,41 @@ $(document).ready(function() {
   
   // focus the name field on first load of the page
   $("#firstNames").focus();
+
+  $(".deleteMovie").click(function() {
+    if(confirm("Remove movie? (This action cannot be undone.)")) {
+        var curId = $(this).closest("tr").attr("id");
+        var movieId = curId.substr(curId.indexOf("-")+1);
+        var postData = "id=" + movieId;
+        
+        $.ajax({
+            type: "post",
+            url: "movie-delete.php",
+            dataType: "json",
+            data: postData,
+            success: function(responseData, status){
+                if (responseData.errors) {
+                    alert(responseData.errno + " " + responseData.error);
+                } else {
+                    $("#" + curId).closest("tr").remove();
+                    $(".messages").hide();
+                    $("#jsMessages").html("<h4>Movie deleted</h4>").show();
+                    
+                    $("#movieTable tr").each(function(i){
+                        if (i % 2 == 0) {
+                            $(this).addClass("odd"); 
+                        } else {
+                            $(this).removeClass("odd");
+                        }
+                    });
+                }
+            },
+            error: function(msg) {
+                alert(msg.status + " " + msg.statusText);
+            }
+        });
+    }
+});
      
   $(".deleteActor").click(function() {
     if(confirm("Remove actor? (This action cannot be undone.)")) {
