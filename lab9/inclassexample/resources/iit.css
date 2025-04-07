@@ -168,7 +168,6 @@ td {
 }
 #movieTable td {
   padding: 2px 4px;
-  color: red;
 }
 #movieTable tr.odd td {
   background-color: #eed;
