@@ -5,7 +5,6 @@ function buildMenu() {
 	$menu = array(
 		'index' => 'actors',
 		'movies' => 'movies'
-		'movie_actors' => 'movie_actors'
 	);
 	// construct the menu, setting the current menu item 'selected' if 
 	// we are on the page that matches the URL
