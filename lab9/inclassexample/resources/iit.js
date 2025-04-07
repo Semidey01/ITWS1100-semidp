@@ -21,6 +21,28 @@ function validate(formObj) {
   return true;
 }
 
+function validateMovie(formObj) {
+  if (formObj.title.value == "") {
+    alert("Please enter a title");
+    formObj.title.focus();
+    return false;
+  }
+  
+  if (formObj.year.value == "") {
+    alert("Please enter a year");
+    formObj.year.focus();
+    return false;
+  }
+  
+  if (isNaN(formObj.year.value)) {
+    alert("Year must be a number");
+    formObj.year.focus();
+    return false;
+  }
+    
+  return true;
+}
+
 
 $(document).ready(function() {
   
