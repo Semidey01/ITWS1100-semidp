@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lastName']) && isset(
    $movieTitle = $db->real_escape_string(trim($_POST['movieTitle']));
    
    if (!empty($lastName) && !empty($movieTitle)) {
-      $insQuery = "INSERT INTO movie_actors (last_name, movie_title) VALUES (?,?)";
+      $insQuery = "INSERT INTO movie_actors (last_name, title) VALUES (?,?)";
       $statement = $db->prepare($insQuery);
       $statement->bind_param("ss", $lastName, $movieTitle);
       
@@ -96,15 +96,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lastName']) && isset(
    <tbody>
       <?php
       if ($dbOk) {
-         $query = 'SELECT * FROM movie_actors ORDER BY last_name, movie_title';
+         $query = 'SELECT * FROM movie_actors ORDER BY last_name, title';
          $result = $db->query($query);
          
          while ($record = $result->fetch_assoc()) {
-            $rowClass = ($i++ % 2 == 0) ? '' : 'odd';
-            echo '<tr class="'.$rowClass.'" id="relationship-'.$record['id'].'">';
+            echo '<tr id="row-'.$record['id'].'">';
             echo '<td>'.htmlspecialchars($record['last_name']).'</td>';
-            echo '<td>'.htmlspecialchars($record['movie_title']).'</td>';
-            echo '<td><img src="resources/delete.png" class="deleteRelationship" width="16" height="16" alt="delete relationship" data-id="'.$record['id'].'"></td>';
+            echo '<td>'.htmlspecialchars($record['title']).'</td>';
+            echo '<td><button class="deleteBtn" data-id="'.$record['id'].'">Delete</button></td>';
             echo '</tr>';
          }
          $result->free();
@@ -136,24 +135,16 @@ $(document).ready(function() {
    });
 
    // Handle delete actions
-   $('.deleteRelationship').click(function() {
+   $(document).on('click', '.deleteBtn', function() {
       if (confirm('Are you sure you want to delete this relationship?')) {
          var id = $(this).data('id');
-         var row = $(this).closest('tr');
          
          $.ajax({
             type: 'POST',
             url: 'delete_relationship.php',
             data: { id: id },
-            dataType: 'json',
-            success: function(response) {
-               if (!response.errors) {
-                  row.fadeOut(300, function() {
-                     $(this).remove();
-                  });
-               } else {
-                  alert('Error deleting relationship');
-               }
+            success: function() {
+               $('#row-'+id).remove();
             },
             error: function() {
                alert('Error deleting relationship');
