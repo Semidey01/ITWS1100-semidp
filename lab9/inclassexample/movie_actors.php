@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lastName']) && isset(
    $movieTitle = $db->real_escape_string(trim($_POST['movieTitle']));
    
    if (!empty($lastName) && !empty($movieTitle)) {
-      $insQuery = "INSERT INTO movie_actors (last_name, movie_title) VALUES (?,?)";
+      $insQuery = "INSERT INTO movie_actors (last_name, title) VALUES (?,?)";
       $statement = $db->prepare($insQuery);
       $statement->bind_param("ss", $lastName, $movieTitle);
       
@@ -96,13 +96,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lastName']) && isset(
    <tbody>
       <?php
       if ($dbOk) {
-         $query = 'SELECT * FROM movie_actors ORDER BY last_name, movie_title';
+         $query = 'SELECT * FROM movie_actors ORDER BY last_name, title';
          $result = $db->query($query);
          
          while ($record = $result->fetch_assoc()) {
             echo '<tr id="row-'.$record['id'].'">';
             echo '<td>'.htmlspecialchars($record['last_name']).'</td>';
-            echo '<td>'.htmlspecialchars($record['movie_title']).'</td>';
+            echo '<td>'.htmlspecialchars($record['title']).'</td>';
             echo '<td><button class="deleteBtn" data-id="'.$record['id'].'">Delete</button></td>';
             echo '</tr>';
          }
