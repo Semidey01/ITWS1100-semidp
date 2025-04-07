@@ -15,7 +15,7 @@
   $dbOk = false;
   
 
-  @ $db = new mysqli('localhost', 'phpmyadmin', 'password', 'iit');
+  @ $db = new mysqli('localhost', 'phpmyadmin', 'Antonio00!1074', 'iit');
   
   if ($db->connect_error) {
     echo '<div class="messages">Could not connect to the database. Error: ';
