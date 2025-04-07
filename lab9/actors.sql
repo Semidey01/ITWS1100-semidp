@@ -17,3 +17,4 @@ VALUES (1, "Christ", "Hemsworth", "1983-08-11"),
    (8, "Joaquin", "Phoenix", "1974-10-28"),
    (9, "Natalie", "Portman", "1981-06-09"),
    (10, "Tom", "Hanks", "1956-07-09");
+   

@@ -23,15 +23,10 @@ if ($db->connect_error) {
 $havePost = isset($_POST["save"]);
 $errors = '';
 if ($havePost) {
-   $firstNames = htmlspecialchars(trim($_POST["firstNames"]));
    $lastName = htmlspecialchars(trim($_POST["lastName"]));
    $movieTitle = htmlspecialchars(trim($_POST["movieTitle"]));
 
    $focusId = '';
-   if ($firstNames == '') {
-      $errors .= '<li>First name may not be blank</li>';
-      if ($focusId == '') $focusId = '#firstNames';
-   }
    if ($lastName == '') {
       $errors .= '<li>Last name may not be blank</li>';
       if ($focusId == '') $focusId = '#lastName';
@@ -51,13 +46,13 @@ if ($havePost) {
       echo '  });';
       echo '</script>';
    } else if ($dbOk) {
-      $insQuery = "INSERT INTO movie_actors (first_names, last_name, movie_title) VALUES (?,?,?)";
+      $insQuery = "INSERT INTO movie_actors (last_name, movie_title) VALUES (?,?)";
       $statement = $db->prepare($insQuery);
-      $statement->bind_param("sss", $firstNames, $lastName, $movieTitle);
+      $statement->bind_param("ss", $lastName, $movieTitle);
       $statement->execute();
       
       echo '<div class="messages"><h4>Success: ' . $statement->affected_rows . ' relationship added.</h4>';
-      echo $firstNames . ' ' . $lastName . ' in ' . $movieTitle . '</div>';
+      echo $lastName . ' in ' . $movieTitle . '</div>';
       
       $statement->close();
    }
@@ -68,20 +63,41 @@ if ($havePost) {
 <form id="addForm" name="addForm" action="movie_actors.php" method="post" onsubmit="return validate(this);">
    <fieldset>
       <div class="formData">
-         <label class="field" for="firstNames">First Name(s):</label>
-         <div class="value"><input type="text" size="60" value="<?php if ($havePost && $errors != '') {
-                                                                     echo $firstNames;
-                                                                  } ?>" name="firstNames" id="firstNames" /></div>
-
          <label class="field" for="lastName">Last Name:</label>
-         <div class="value"><input type="text" size="60" value="<?php if ($havePost && $errors != '') {
-                                                                     echo $lastName;
-                                                                  } ?>" name="lastName" id="lastName" /></div>
+         <div class="value">
+            <select name="lastName" id="lastName">
+               <?php
+               if ($dbOk) {
+                  $actorQuery = "SELECT DISTINCT last_name FROM actors ORDER BY last_name";
+                  $actorResult = $db->query($actorQuery);
+                  while ($actor = $actorResult->fetch_assoc()) {
+                     $selected = ($havePost && $lastName == $actor['last_name']) ? 'selected' : '';
+                     echo '<option value="'.htmlspecialchars($actor['last_name']).'" '.$selected.'>'
+                         .htmlspecialchars($actor['last_name']).'</option>';
+                  }
+                  $actorResult->free();
+               }
+               ?>
+            </select>
+         </div>
 
          <label class="field" for="movieTitle">Movie Title:</label>
-         <div class="value"><input type="text" size="60" value="<?php if ($havePost && $errors != '') {
-                                                                     echo $movieTitle;
-                                                                  } ?>" name="movieTitle" id="movieTitle" /></div>
+         <div class="value">
+            <select name="movieTitle" id="movieTitle">
+               <?php
+               if ($dbOk) {
+                  $movieQuery = "SELECT DISTINCT title FROM movies ORDER BY title";
+                  $movieResult = $db->query($movieQuery);
+                  while ($movie = $movieResult->fetch_assoc()) {
+                     $selected = ($havePost && $movieTitle == $movie['title']) ? 'selected' : '';
+                     echo '<option value="'.htmlspecialchars($movie['title']).'" '.$selected.'>'
+                         .htmlspecialchars($movie['title']).'</option>';
+                  }
+                  $movieResult->free();
+               }
+               ?>
+            </select>
+         </div>
 
          <input type="submit" value="save" id="save" name="save" />
       </div>
@@ -92,11 +108,11 @@ if ($havePost) {
 <table id="actorMovieTable">
    <?php
    if ($dbOk) {
-      $query = 'SELECT * FROM movie_actors ORDER BY last_name, first_names';
+      $query = 'SELECT * FROM movie_actors ORDER BY last_name, movie_title';
       $result = $db->query($query);
       $numRecords = $result->num_rows;
 
-      echo '<tr><th>Actor</th><th>Movie</th><th></th></tr>';
+      echo '<tr><th>Actor Last Name</th><th>Movie Title</th><th></th></tr>';
       for ($i = 0; $i < $numRecords; $i++) {
          $record = $result->fetch_assoc();
          if ($i % 2 == 0) {
@@ -104,8 +120,7 @@ if ($havePost) {
          } else {
             echo "\n" . '<tr class="odd" id="relationship-' . $record['id'] . '"><td>';
          }
-         echo htmlspecialchars($record['last_name']) . ', ';
-         echo htmlspecialchars($record['first_names']);
+         echo htmlspecialchars($record['last_name']);
          echo '</td><td>';
          echo htmlspecialchars($record['movie_title']);
          echo '</td><td>';
