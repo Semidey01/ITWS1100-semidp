@@ -20,59 +20,39 @@ if ($db->connect_error) {
 }
 
 // Process form submission
-$havePost = isset($_POST["save"]);
-$errors = '';
-if ($havePost) {
-   $lastName = htmlspecialchars(trim($_POST["lastName"]));
-   $movieTitle = htmlspecialchars(trim($_POST["movieTitle"]));
-
-   $focusId = '';
-   if ($lastName == '') {
-      $errors .= '<li>Last name may not be blank</li>';
-      if ($focusId == '') $focusId = '#lastName';
-   }
-   if ($movieTitle == '') {
-      $errors .= '<li>Movie title may not be blank</li>';
-      if ($focusId == '') $focusId = '#movieTitle';
-   }
-
-   if ($errors != '') {
-      echo '<div class="messages"><h4>Please correct the following errors:</h4><ul>';
-      echo $errors;
-      echo '</ul></div>';
-      echo '<script type="text/javascript">';
-      echo '  $(document).ready(function() {';
-      echo '    $("' . $focusId . '").focus();';
-      echo '  });';
-      echo '</script>';
-   } else if ($dbOk) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lastName']) && isset($_POST['movieTitle'])) {
+   $lastName = $db->real_escape_string(trim($_POST['lastName']));
+   $movieTitle = $db->real_escape_string(trim($_POST['movieTitle']));
+   
+   if (!empty($lastName) && !empty($movieTitle)) {
       $insQuery = "INSERT INTO movie_actors (last_name, movie_title) VALUES (?,?)";
       $statement = $db->prepare($insQuery);
       $statement->bind_param("ss", $lastName, $movieTitle);
-      $statement->execute();
       
-      echo '<div class="messages"><h4>Success: ' . $statement->affected_rows . ' relationship added.</h4>';
-      echo $lastName . ' in ' . $movieTitle . '</div>';
-      
+      if ($statement->execute()) {
+         echo '<div class="messages"><h4>Success: Relationship added.</h4></div>';
+      } else {
+         echo '<div class="messages"><h4>Error: '.$db->error.'</h4></div>';
+      }
       $statement->close();
    }
 }
 ?>
 
 <h3>Add Actor-Movie Relationship</h3>
-<form id="addForm" name="addForm" action="movie_actors.php" method="post" onsubmit="return validate(this);">
+<form id="relationshipForm">
    <fieldset>
       <div class="formData">
-         <label class="field" for="lastName">Last Name:</label>
+         <label class="field" for="actorSelect">Actor Last Name:</label>
          <div class="value">
-            <select name="lastName" id="lastName">
+            <select id="actorSelect" name="lastName" required>
+               <option value="">Select an actor</option>
                <?php
                if ($dbOk) {
                   $actorQuery = "SELECT DISTINCT last_name FROM actors ORDER BY last_name";
                   $actorResult = $db->query($actorQuery);
                   while ($actor = $actorResult->fetch_assoc()) {
-                     $selected = ($havePost && $lastName == $actor['last_name']) ? 'selected' : '';
-                     echo '<option value="'.htmlspecialchars($actor['last_name']).'" '.$selected.'>'
+                     echo '<option value="'.htmlspecialchars($actor['last_name']).'">'
                          .htmlspecialchars($actor['last_name']).'</option>';
                   }
                   $actorResult->free();
@@ -81,16 +61,16 @@ if ($havePost) {
             </select>
          </div>
 
-         <label class="field" for="movieTitle">Movie Title:</label>
+         <label class="field" for="movieSelect">Movie Title:</label>
          <div class="value">
-            <select name="movieTitle" id="movieTitle">
+            <select id="movieSelect" name="movieTitle" required>
+               <option value="">Select a movie</option>
                <?php
                if ($dbOk) {
                   $movieQuery = "SELECT DISTINCT title FROM movies ORDER BY title";
                   $movieResult = $db->query($movieQuery);
                   while ($movie = $movieResult->fetch_assoc()) {
-                     $selected = ($havePost && $movieTitle == $movie['title']) ? 'selected' : '';
-                     echo '<option value="'.htmlspecialchars($movie['title']).'" '.$selected.'>'
+                     echo '<option value="'.htmlspecialchars($movie['title']).'">'
                          .htmlspecialchars($movie['title']).'</option>';
                   }
                   $movieResult->free();
@@ -99,39 +79,83 @@ if ($havePost) {
             </select>
          </div>
 
-         <input type="submit" value="save" id="save" name="save" />
+         <button type="submit" id="saveBtn">Save Relationship</button>
       </div>
    </fieldset>
 </form>
 
 <h3>Actor-Movie Relationships</h3>
-<table id="actorMovieTable">
-   <?php
-   if ($dbOk) {
-      $query = 'SELECT * FROM movie_actors ORDER BY last_name, movie_title';
-      $result = $db->query($query);
-      $numRecords = $result->num_rows;
-
-      echo '<tr><th>Actor Last Name</th><th>Movie Title</th><th></th></tr>';
-      for ($i = 0; $i < $numRecords; $i++) {
-         $record = $result->fetch_assoc();
-         if ($i % 2 == 0) {
-            echo "\n" . '<tr id="relationship-' . $record['id'] . '"><td>';
-         } else {
-            echo "\n" . '<tr class="odd" id="relationship-' . $record['id'] . '"><td>';
+<table id="relationshipTable">
+   <thead>
+      <tr>
+         <th>Actor Last Name</th>
+         <th>Movie Title</th>
+         <th>Actions</th>
+      </tr>
+   </thead>
+   <tbody>
+      <?php
+      if ($dbOk) {
+         $query = 'SELECT * FROM movie_actors ORDER BY last_name, movie_title';
+         $result = $db->query($query);
+         
+         while ($record = $result->fetch_assoc()) {
+            echo '<tr id="row-'.$record['id'].'">';
+            echo '<td>'.htmlspecialchars($record['last_name']).'</td>';
+            echo '<td>'.htmlspecialchars($record['movie_title']).'</td>';
+            echo '<td><button class="deleteBtn" data-id="'.$record['id'].'">Delete</button></td>';
+            echo '</tr>';
          }
-         echo htmlspecialchars($record['last_name']);
-         echo '</td><td>';
-         echo htmlspecialchars($record['movie_title']);
-         echo '</td><td>';
-         echo '<img src="resources/delete.png" class="deleteRelationship" width="16" height="16" alt="delete relationship"/>';
-         echo '</td></tr>';
+         $result->free();
       }
-
-      $result->free();
-      $db->close();
-   }
-   ?>
+      ?>
+   </tbody>
 </table>
 
-<?php include('includes/foot.inc.php'); ?>
+<script>
+$(document).ready(function() {
+   // Handle form submission with AJAX
+   $('#relationshipForm').submit(function(e) {
+      e.preventDefault();
+      
+      $.ajax({
+         type: 'POST',
+         url: 'movie_actors.php',
+         data: $(this).serialize(),
+         success: function(response) {
+            // Reload the relationships table
+            $('#relationshipTable tbody').load('movie_actors.php #relationshipTable tbody > *');
+            // Clear the form
+            $('#relationshipForm')[0].reset();
+         },
+         error: function() {
+            alert('Error saving relationship');
+         }
+      });
+   });
+
+   // Handle delete actions
+   $(document).on('click', '.deleteBtn', function() {
+      if (confirm('Are you sure you want to delete this relationship?')) {
+         var id = $(this).data('id');
+         
+         $.ajax({
+            type: 'POST',
+            url: 'delete_relationship.php',
+            data: { id: id },
+            success: function() {
+               $('#row-'+id).remove();
+            },
+            error: function() {
+               alert('Error deleting relationship');
+            }
+         });
+      }
+   });
+});
+</script>
+
+<?php 
+if ($dbOk) $db->close();
+include('includes/foot.inc.php'); 
+?>
