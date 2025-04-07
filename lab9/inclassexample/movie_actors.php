@@ -1,25 +1,17 @@
 <?php 
-  include('includes/init.inc.php'); // include the DOCTYPE and opening tags
-  include('includes/functions.inc.php'); // functions
+  include('includes/init.inc.php');
+  include('includes/functions.inc.php');
   error_reporting(E_ALL);
   ini_set('display_errors', '1');
 ?>
 <title>PHP &amp; MySQL - ITWS</title>   
-
 <?php include('includes/head.inc.php'); ?>
 
 <h1>PHP &amp; MySQL</h1>
-      
 <?php include('includes/menubody.inc.php'); ?>
+
 <?php
-  // We'll need a database connection both for retrieving records and for
-  // inserting them.  Let's get it up front and use it for both processes
-  // to avoid opening the connection twice.  If we make a good connection,
-  // we'll change the $dbOk flag.
   $dbOk = false;
-  
-  /* Create a new database connection object, passing in the host, username,
-  password, and database to use. The "@" suppresses errors. */
   @ $db = new mysqli('localhost', 'phpmyadmin', 'Antonio00!1074', 'iit');
   
   if ($db->connect_error) {
@@ -34,36 +26,59 @@
 <table id="movieTable">
 <?php
   if ($dbOk) {
-    $query = 'SELECT m.movieid, m.title, m.year, a.actorid, a.first_names, a.last_name, a.dob
-              FROM movies m
-              JOIN movie_actors ma ON m.movieid = ma.movieid
-              JOIN actors a ON ma.actorid = a.actorid
-              ORDER BY m.title, a.last_name';
+    // Check if movie_actors table exists
+    $tableCheck = $db->query("SHOW TABLES LIKE 'movie_actors'");
     
-    $result = $db->query($query);
-    $numRecords = $result->num_rows;
-
-    echo '<tr><th>Title:</th><th>Year:</th><th>Actor First Name:</th><th>Actor Last Name:</th><th>Date of Birth:</th></tr>';
-
-    for ($i = 0; $i < $numRecords; $i++) {
-      $record = $result->fetch_assoc();
-      $rowClass = $i % 2 == 0 ? '' : 'odd';
-      echo "\n<tr class=\"$rowClass\" id=\"movie-{$record['movieid']}\">";
-      echo '<td>' . htmlspecialchars($record['title']) . '</td>';
-      echo '<td>' . htmlspecialchars($record['year']) . '</td>';
-      echo '<td>' . htmlspecialchars($record['first_names']) . '</td>';
-      echo '<td>' . htmlspecialchars($record['last_name']) . '</td>';
-      echo '<td>' . htmlspecialchars($record['dob']) . '</td>';
-      echo '</tr>';
+    if ($tableCheck->num_rows > 0) {
+      $query = 'SELECT first_names, last_name, movie_title, year 
+                FROM movie_actors 
+                ORDER BY movie_title, last_name, first_names';
+      
+      $result = $db->query($query);
+      
+      if ($result && $result->num_rows > 0) {
+        echo '<tr><th>Actor First Name</th><th>Actor Last Name</th><th>Movie Title</th><th>Year</th></tr>';
+        
+        while ($record = $result->fetch_assoc()) {
+          echo '<tr>';
+          echo '<td>' . htmlspecialchars($record['first_names']) . '</td>';
+          echo '<td>' . htmlspecialchars($record['last_name']) . '</td>';
+          echo '<td>' . htmlspecialchars($record['movie_title']) . '</td>';
+          echo '<td>' . htmlspecialchars($record['year']) . '</td>';
+          echo '</tr>';
+        }
+      } else {
+        echo '<tr><td colspan="4">No actor-movie relationships found.</td></tr>';
+      }
+    } else {
+      echo '<tr><td colspan="4">The movie_actors table does not exist. Please create it first.</td></tr>';
     }
-
-    $result->free();
-
-    // Finally, let's close the database
+    
+    if (isset($result)) $result->free();
     $db->close();
   }
 ?>
 </table>
-<?php include('includes/foot.inc.php'); 
-  // footer info and closing tags
-?>
+
+<h3>Add Movie-Actor Relationship</h3>
+<form id="addRelationshipForm" action="movie_actors.php" method="post">
+  <fieldset>
+    <div class="formData">
+      <label class="field" for="first_names">Actor First Name:</label>
+      <input type="text" name="first_names" id="first_names" required>
+      
+      <label class="field" for="last_name">Actor Last Name:</label>
+      <input type="text" name="last_name" id="last_name" required>
+      
+      <label class="field" for="movie_title">Movie Title:</label>
+      <input type="text" name="movie_title" id="movie_title" required>
+      
+      <label class="field" for="year">Year:</label>
+      <input type="number" name="year" id="year">
+      
+      <input type="submit" value="Add Relationship" name="add_relationship">
+    </div>
+  </fieldset>
+</form>
+
+<?php include('includes/foot.inc.php'); ?>
