@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lastName']) && isset(
 <form id="relationshipForm">
    <fieldset>
       <div class="formData">
-         <label class="field" for="actorSelect">Actor Last Name:</label>
+         <label class="field" for="actorSelect">Last Name:</label>
          <div class="value">
             <select id="actorSelect" name="lastName" required>
                <option value="">Select an actor</option>
