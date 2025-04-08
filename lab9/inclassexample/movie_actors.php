@@ -116,46 +116,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lastName']) && isset(
 
 <script>
 $(document).ready(function() {
-    // Handle delete actions
-    $(document).on('click', '.deleteRelationship', function(e) {
-        e.preventDefault();
-        var $deleteBtn = $(this);
-        var id = $deleteBtn.data('id');
-        var row = $deleteBtn.closest('tr');
-        
-        if (!id) {
-            alert('Error: No ID found for this relationship');
-            return;
-        }
-        
-        if (confirm('Are you sure you want to delete this relationship?')) {
-            $deleteBtn.prop('disabled', true).css('opacity', '0.5');
-            
-            $.ajax({
-                type: 'POST',
-                url: 'relationship-delete.php',
-                data: { id: id },
-                dataType: 'json',
-                success: function(response) {
-                    if (!response.errors) {
-                        row.fadeOut('fast', function() {
-                            $(this).remove();
-                            // Reapply odd/even styling
-                            $('#relationshipTable tbody tr').removeClass('odd');
-                            $('#relationshipTable tbody tr:even').addClass('odd');
-                        });
-                    } else {
-                        alert('Error: ' + response.message);
-                        $deleteBtn.prop('disabled', false).css('opacity', '1');
-                    }
-                },
-                error: function(xhr, status, error) {
-                    alert('Error: ' + error + '\nStatus: ' + status + '\nResponse: ' + xhr.responseText);
-                    $deleteBtn.prop('disabled', false).css('opacity', '1');
-                }
-            });
-        }
-    });
+   // Handle delete actions
+   $(document).on('click', '.deleteRelationship', function(e) {
+      e.preventDefault();
+      if (confirm('Are you sure you want to delete this relationship?')) {
+         var id = $(this).data('id');
+         var row = $(this).closest('tr');
+         
+         $.ajax({
+            type: 'POST',
+            url: 'relationship-delete.php',
+            data: { id: id },
+            dataType: 'json',
+            success: function(response) {
+               if (!response.errors) {
+                  row.fadeOut('fast', function() {
+                     $(this).remove();
+                     // Reapply odd/even styling
+                     $('#relationshipTable tbody tr').removeClass('odd');
+                     $('#relationshipTable tbody tr:even').addClass('odd');
+                  });
+               } else {
+                  alert('Error: ' + response.error);
+               }
+            },
+            error: function(xhr, status, error) {
+               alert('Error: ' + error);
+            }
+         });
+      }
+   });
 });
 </script>
 <?php 
