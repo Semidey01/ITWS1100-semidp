@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lastName']) && isset(
    $movieTitle = $db->real_escape_string(trim($_POST['movieTitle']));
    
    if (!empty($lastName) && !empty($movieTitle)) {
-      $insQuery = "INSERT INTO movie_actors (last_name, title) VALUES (?,?)";
+      $insQuery = "INSERT INTO movie_actors (last_name, movie_title) VALUES (?,?)";
       $statement = $db->prepare($insQuery);
       $statement->bind_param("ss", $lastName, $movieTitle);
       
@@ -96,14 +96,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lastName']) && isset(
    <tbody>
       <?php
       if ($dbOk) {
-         $query = 'SELECT * FROM movie_actors ORDER BY last_name, title';
+         $query = 'SELECT * FROM movie_actors ORDER BY last_name, movie_title';
          $result = $db->query($query);
+         $i = 0;
          
          while ($record = $result->fetch_assoc()) {
-            echo '<tr id="row-'.$record['id'].'">';
+            $rowClass = ($i++ % 2 == 0) ? '' : 'odd';
+            echo '<tr class="'.$rowClass.'" id="relationship-'.$record['id'].'">';
             echo '<td>'.htmlspecialchars($record['last_name']).'</td>';
-            echo '<td>'.htmlspecialchars($record['title']).'</td>';
-            echo '<td><button class="deleteBtn" data-id="'.$record['id'].'">Delete</button></td>';
+            echo '<td>'.htmlspecialchars($record['movie_title']).'</td>';
+            echo '<td><img src="resources/delete.png" class="deleteRelationship" width="16" height="16" alt="delete relationship" data-id="'.$record['id'].'"></td>';
             echo '</tr>';
          }
          $result->free();
@@ -123,10 +125,8 @@ $(document).ready(function() {
          url: 'movie_actors.php',
          data: $(this).serialize(),
          success: function(response) {
-            // Reload the relationships table
-            $('#relationshipTable tbody').load('movie_actors.php #relationshipTable tbody > *');
-            // Clear the form
-            $('#relationshipForm')[0].reset();
+            // Reload the page to show updated relationships
+            location.reload();
          },
          error: function() {
             alert('Error saving relationship');
@@ -135,16 +135,27 @@ $(document).ready(function() {
    });
 
    // Handle delete actions
-   $(document).on('click', '.deleteBtn', function() {
+   $(document).on('click', '.deleteRelationship', function() {
       if (confirm('Are you sure you want to delete this relationship?')) {
          var id = $(this).data('id');
+         var row = $(this).closest('tr');
          
          $.ajax({
             type: 'POST',
-            url: 'delete_relationship.php',
+            url: 'relationship-delete.php',
             data: { id: id },
-            success: function() {
-               $('#row-'+id).remove();
+            dataType: 'json',
+            success: function(response) {
+               if (!response.errors) {
+                  row.fadeOut(300, function() {
+                     $(this).remove();
+                     // Reapply odd/even styling after deletion
+                     $('#relationshipTable tbody tr').removeClass('odd');
+                     $('#relationshipTable tbody tr:odd').addClass('odd');
+                  });
+               } else {
+                  alert('Error deleting relationship');
+               }
             },
             error: function() {
                alert('Error deleting relationship');
