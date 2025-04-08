@@ -12,10 +12,10 @@ if ($db->connect_error) {
     );
     echo json_encode($connectErrors);
 } else {
-    if (isset($_POST["last_name"])) {
-        $relationshipId = (int) $_POST["last_name"];
+    if (isset($_POST["id"])) {
+        $relationshipId = (int) $_POST["id"];
         
-        $query = "DELETE FROM movie_actors WHERE last_name = ?";
+        $query = "DELETE FROM movie_actors WHERE id = ?";
         $statement = $db->prepare($query);
         $statement->bind_param("i", $relationshipId);
         $statement->execute();
