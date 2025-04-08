@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lastName']) && isset(
          
          while ($record = $result->fetch_assoc()) {
             $rowClass = ($i++ % 2 == 0) ? '' : 'odd';
-            echo '<tr class="'.$rowClass.'" id="row-'.$record['id'].'">';
+            echo '<tr class="'.$rowClass.'" id="relationship-'.$record['id'].'">';
             echo '<td>'.htmlspecialchars($record['last_name']).'</td>';
             echo '<td>'.htmlspecialchars($record['title']).'</td>';
             echo '<td><img src="resources/delete.png" class="deleteRelationship" width="16" height="16" alt="delete relationship" data-id="'.$record['id'].'"></td>';
@@ -117,7 +117,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lastName']) && isset(
 <script>
 $(document).ready(function() {
    // Handle delete actions
-   $(document).on('click', '.deleteRelationship', function() {
+   $(document).on('click', '.deleteRelationship', function(e) {
+      e.preventDefault();
       if (confirm('Are you sure you want to delete this relationship?')) {
          var id = $(this).data('id');
          var row = $(this).closest('tr');
@@ -129,25 +130,24 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(response) {
                if (!response.errors) {
-                  row.fadeOut(300, function() {
+                  row.fadeOut('fast', function() {
                      $(this).remove();
-                     // Reapply odd/even styling after deletion
+                     // Reapply odd/even styling
                      $('#relationshipTable tbody tr').removeClass('odd');
-                     $('#relationshipTable tbody tr:odd').addClass('odd');
+                     $('#relationshipTable tbody tr:even').addClass('odd');
                   });
                } else {
-                  alert('Error deleting relationship: ' + response.error);
+                  alert('Error: ' + response.error);
                }
             },
-            error: function() {
-               alert('Error deleting relationship');
+            error: function(xhr, status, error) {
+               alert('Error: ' + error);
             }
          });
       }
    });
 });
 </script>
-
 <?php 
 if ($dbOk) $db->close();
 include('includes/foot.inc.php'); 
