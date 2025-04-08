@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lastName']) && isset(
       <tr>
          <th>Actor Last Name</th>
          <th>Movie Title</th>
-         <th>Actions</th>
+         <th></th>
       </tr>
    </thead>
    <tbody>
@@ -132,7 +132,6 @@ $(document).ready(function() {
                if (!response.errors) {
                   row.fadeOut('fast', function() {
                      $(this).remove();
-                     // Reapply odd/even styling
                      $('#relationshipTable tbody tr').removeClass('odd');
                      $('#relationshipTable tbody tr:even').addClass('odd');
                   });
