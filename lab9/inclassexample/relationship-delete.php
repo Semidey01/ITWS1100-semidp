@@ -15,7 +15,7 @@ if ($db->connect_error) {
     if (isset($_POST["id"])) {
         $relationshipId = (int) $_POST["id"];
         
-        $query = "DELETE FROM movie_actors WHERE id = ?";
+        $query = "DELETE FROM movie_actors WHERE `movie_actors`.`id` = ?";
         $statement = $db->prepare($query);
         $statement->bind_param("i", $relationshipId);
         $statement->execute();
