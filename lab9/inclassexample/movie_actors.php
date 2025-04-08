@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lastName']) && isset(
    $movieTitle = trim($_POST['movieTitle']);
    
    if (!empty($lastName) && !empty($movieTitle)) {
-      $insQuery = "INSERT INTO movie_actors (last_name, movie_title) VALUES (?,?)";
+      $insQuery = "INSERT INTO movie_actors (last_name, title) VALUES (?,?)";
       $statement = $db->prepare($insQuery);
       $statement->bind_param("ss", $lastName, $movieTitle);
       
@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lastName']) && isset(
    <tbody>
       <?php
       if ($dbOk) {
-         $query = 'SELECT * FROM movie_actors ORDER BY last_name, movie_title';
+         $query = 'SELECT * FROM movie_actors ORDER BY last_name, title';
          $result = $db->query($query);
          $i = 0;
          
@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lastName']) && isset(
             $rowClass = ($i++ % 2 == 0) ? '' : 'odd';
             echo '<tr class="'.$rowClass.'" id="row-'.$record['id'].'">';
             echo '<td>'.htmlspecialchars($record['last_name']).'</td>';
-            echo '<td>'.htmlspecialchars($record['movie_title']).'</td>';
+            echo '<td>'.htmlspecialchars($record['title']).'</td>';
             echo '<td><img src="resources/delete.png" class="deleteRelationship" width="16" height="16" alt="delete relationship" data-id="'.$record['id'].'"></td>';
             echo '</tr>';
          }
