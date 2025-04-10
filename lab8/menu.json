@@ -44,6 +44,17 @@
          "readme": "../../lab8/README.md",
          "json": "../../lab8/menu.json",
          "ajaxjs": "../../lab8/menu.js"
+      },
+      {
+         "name": "Lab 9 - PHP and MySQL",
+         "readme": "../../lab9/inclassexample/README.md",
+         "php": "../../lab9/inclassexample/index.php",
+         "sql": "../../lab9/inclassexample/iit.pdf"
+      },
+      {
+         "name": "Lab 10 - Move Servers to Production",
+         "readme": "../../lab10/README.md",
+         "page": "../../lab10/index.php"
       }
    ]
 }
