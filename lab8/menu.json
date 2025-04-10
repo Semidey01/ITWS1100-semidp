@@ -32,7 +32,7 @@
       },
       {
          "name": "Lab 6 - JQuery Practice",
-         "readme": "../../lab6/README.md",
+         "readme": "../../lab6/readme.md",
          "jquery": "../../lab6/lab6.html",
          "jqueryjs": "../../lab6/lab6.js"
       },
