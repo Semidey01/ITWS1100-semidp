@@ -49,7 +49,7 @@
          "name": "Lab 9 - PHP and MySQL",
          "readme": "../../lab9/inclassexample/README.md",
          "php": "../../lab9/inclassexample/index.php",
-         "sql": "../../lab9/inclassexample/iit.pdf"
+         "sql": "../../lab9/iit.pdf"
       },
       {
          "name": "Lab 10 - Move Servers to Production",
