@@ -2,7 +2,7 @@
    "menuItem": [
       {
          "name": "Lab 1 - GitHub and Azure VM Setup",
-         "readme": "../../Lab1/README.md",
+         "readme": "../../Lab 1/README.md",
          "github": "../../Lab 1/semidp-GitHubInfo.png",
          "azure": "../../Lab 1/semidp-AzureStatus.png",
          "print": "../../Lab 1/semidp-HelloWorld.pdf",
