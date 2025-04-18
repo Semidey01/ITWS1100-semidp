@@ -37,7 +37,8 @@
          "jqueryjs": "../../lab6/lab6.js"
       },
       {
-         "name": "Lab 7 - Term Project Mockup"
+         "name": "Lab 7 - Term Project Mockup",
+         "go": "../../../../ITWS1100-S25-team12/html/homepage.html"
       },
       {
          "name": "Lab 8 - JSON and AJAX",
