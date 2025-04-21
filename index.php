@@ -10,7 +10,7 @@
         <title>Pablo Semidey Website</title>
     </head>
     <body>
-        <?php include 'functions.inc.php'; ?>
+        <?php include 'menu.php'; ?>
         <?php echo buildMenu(); ?>
 
         <!-- name and background image-->
