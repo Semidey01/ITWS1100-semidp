@@ -16,7 +16,7 @@
       {
          "name": "Lab 3 - Create a Website",
          "readme": "../README.md",
-         "website": "../../index.html"
+         "website": "../../index.php"
       },
       {
          "name": "Lab 4 - XML (RSS and Atom)",
