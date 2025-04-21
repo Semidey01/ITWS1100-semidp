@@ -10,15 +10,8 @@
         <title>Pablo Semidey Website</title>
     </head>
     <body>
-        <!-- navigation bar at the top -->
-        <div class="top">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Lab3/html/about.html">About Me</a></li>
-                <li><a href="Lab3/html/work.html">Work</a></li>
-                <li><a href="Lab3/html/contact.html">Contact</a></li>
-            </ul>
-        </div>
+        <?php include 'functions.inc.php'; ?>
+        <?php echo buildMenu(); ?>
 
         <!-- name and background image-->
         <section class="heading">
