@@ -3,28 +3,42 @@ session_start();
 include('conn.php');
 include('quiz3/menu.php');
 
+<?php
+session_start();
+include('conn.php');
+include('quiz3/menu.php');
+
 // Handle login form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
-    $stmt = $db->prepare("SELECT * FROM mySiteUsers WHERE username = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows == 1) {
-        $user = $result->fetch_assoc();
-        if (password_verify($password, $user['user_password'])) {
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['user_role'] = $user['user_role'];
-            header("Location: index.php"); // Refresh to show welcome message
-            exit();
-        } else {
-            $login_error = "Invalid password";
+    try {
+        $stmt = $db->prepare("SELECT * FROM mySiteUsers WHERE username = ?");
+        if (!$stmt) {
+            throw new Exception("Database error: " . $db->error);
         }
-    } else {
-        $login_error = "Username not found";
+        
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows == 1) {
+            $user = $result->fetch_assoc();
+            if (password_verify($password, $user['user_password'])) {
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['user_role'] = $user['user_role'];
+                header("Location: index.php");
+                exit();
+            } else {
+                $login_error = "Invalid password";
+            }
+        } else {
+            $login_error = "Username not found";
+        }
+    } catch (Exception $e) {
+        error_log($e->getMessage());
+        $login_error = "Database error occurred";
     }
 }
 
