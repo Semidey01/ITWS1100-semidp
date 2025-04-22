@@ -9,8 +9,8 @@
     <body>
         <?php 
         // Include database connection and menu functions
-        include('conn.php');
-        include('menu.php');
+        include('../../quiz3/conn.php');
+        include('../../quiz3/menu.php');
         
         // Display the navigation menu
         echo buildMenu();
