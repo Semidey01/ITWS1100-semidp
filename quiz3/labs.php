@@ -10,7 +10,7 @@
         <?php 
         // Include database connection and menu functions
         include('conn.php');
-        include('menu.php');
+        include('menu2.php');
         
         // Display the navigation menu
         echo buildMenu();
