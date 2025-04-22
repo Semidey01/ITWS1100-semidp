@@ -6,9 +6,9 @@ function buildMenu() {
     
     $menu = array(
         'index.php' => 'Home',
-        'Lab3/html/about.php' => 'About Me',
-        'Lab3/html/work.php' => 'Work',
-        'Lab3/html/contact.php' => 'Contact',
+        'Lab3/html/about.html' => 'About Me',
+        'Lab3/html/work.html' => 'Work',
+        'Lab3/html/contact.html' => 'Contact',
     );
     
     $menuOutput = '<div class="top"><ul>';
