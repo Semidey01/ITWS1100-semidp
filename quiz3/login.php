@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="resources/login.css">
 </head>
 <body>
+    <?php include 'menu.php'; ?>
     <?php echo buildMenu(); ?>
     
     <div class="login-form">
