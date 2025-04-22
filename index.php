@@ -20,7 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
 
         if ($result->num_rows == 1) {
             $user = $result->fetch_assoc();
-            if (password_verify($password, $user['user_password'])) {
+            
+            // Plain text comparison (INSECURE)
+            if ($user['user_password'] === $password) {
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['user_role'] = $user['user_role'];
                 header("Location: index.php");
@@ -28,13 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
             } else {
                 $login_error = "Invalid password";
             }
-        } else {
-            $login_error = "Username not found";
         }
-    } catch (Exception $e) {
-        error_log($e->getMessage());
-        $login_error = "Database error occurred";
-    }
 }
 
 // Handle logout
