@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../Lab3/css/top.css">
         <link rel="stylesheet" href="../Lab3/css/labs.css"> <!-- Reusing labs.css -->
+        <link rel="stylesheet" href="resources/footer.css">
         <title>Pablo Semidey Website - Projects</title>
     </head>
     <body>
