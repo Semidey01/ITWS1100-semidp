@@ -1,50 +1,70 @@
 /* Login form styles */
-.login-form {
+.login-container {
    max-width: 400px;
-   margin: 50px auto;
+   margin: 30px auto;
    padding: 20px;
-   background-color: #1e2124;
-   border-radius: 5px;
-   color: white;
+}
+
+.login-form {
+   background-color: rgba(30, 33, 36, 0.9);
+   padding: 25px;
+   border-radius: 8px;
+   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.login-form h3 {
+   color: aliceblue;
+   text-align: center;
+   margin-bottom: 20px;
+   font-size: 1.5em;
 }
 
 .login-form input {
    width: 100%;
-   padding: 10px;
-   margin: 10px 0;
-   border-radius: 3px;
-   border: 1px solid #ccc;
+   padding: 12px;
+   margin-bottom: 15px;
+   border: 1px solid #444;
+   border-radius: 4px;
+   background-color: #2a2e32;
+   color: white;
+   font-size: 1em;
 }
 
 .login-form button {
+   width: 100%;
+   padding: 12px;
    background-color: #4f8fc5;
    color: white;
-   padding: 10px 15px;
    border: none;
-   border-radius: 3px;
+   border-radius: 4px;
    cursor: pointer;
+   font-size: 1em;
+   transition: background-color 0.3s;
 }
 
-.error {
+.login-form button:hover {
+   background-color: #3a7bb5;
+}
+
+.login-error {
    color: #ff6b6b;
-   margin-bottom: 15px;
-}
-
-/* Admin options */
-.admin-options {
-   margin: 20px 0;
    text-align: center;
+   margin-top: 15px;
 }
 
-.admin-button {
-   background-color: #a380c2;
-   color: white;
-   padding: 8px 15px;
-   margin: 0 10px;
-   border-radius: 3px;
+.welcome-message {
+   color: aliceblue;
+   text-align: center;
+   margin: 20px 0;
+   font-size: 1.3em;
+}
+
+.logout-link {
+   color: #a380c2;
    text-decoration: none;
+   font-size: 0.8em;
 }
 
-.admin-button:hover {
-   background-color: #8a6bb1;
+.logout-link:hover {
+   text-decoration: underline;
 }
