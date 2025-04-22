@@ -1,0 +1,79 @@
+<?php
+session_start();
+include('conn.php');
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+    
+    $stmt = $db->prepare("SELECT * FROM mySiteUsers WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($result->num_rows == 1) {
+        $user = $result->fetch_assoc();
+        if (password_verify($password, $user['user_password'])) {
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['user_role'] = $user['user_role'];
+            header("Location: index.php");
+            exit();
+        }
+    }
+    
+    $_SESSION['login_error'] = "Invalid username or password";
+    header("Location: login.php");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="../Lab3/css/top.css">
+    <style>
+        .login-form {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #1e2124;
+            border-radius: 5px;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+        .login-form button {
+            background-color: #4f8fc5;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .error {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <?php echo buildMenu(); ?>
+    
+    <div class="login-form">
+        <h2>Login</h2>
+        <?php if (isset($_SESSION['login_error'])): ?>
+            <div class="error"><?php echo $_SESSION['login_error']; unset($_SESSION['login_error']); ?></div>
+        <?php endif; ?>
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

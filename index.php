@@ -14,6 +14,11 @@
         <?php include 'quiz3/menu.php'; ?>
         <?php echo buildMenu(); ?>
 
+        <div class="content">
+        <?php if (isset($_SESSION['username'])): ?>
+            <h2>Welcome <?php echo htmlspecialchars($_SESSION['username']); ?>!</h2>
+        <?php endif; ?>
+
         <!-- name and background image-->
         <section class="heading">
             <div class="name">
