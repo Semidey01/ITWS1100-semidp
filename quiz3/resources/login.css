@@ -1,0 +1,50 @@
+/* Login form styles */
+.login-form {
+   max-width: 400px;
+   margin: 50px auto;
+   padding: 20px;
+   background-color: #1e2124;
+   border-radius: 5px;
+   color: white;
+}
+
+.login-form input {
+   width: 100%;
+   padding: 10px;
+   margin: 10px 0;
+   border-radius: 3px;
+   border: 1px solid #ccc;
+}
+
+.login-form button {
+   background-color: #4f8fc5;
+   color: white;
+   padding: 10px 15px;
+   border: none;
+   border-radius: 3px;
+   cursor: pointer;
+}
+
+.error {
+   color: #ff6b6b;
+   margin-bottom: 15px;
+}
+
+/* Admin options */
+.admin-options {
+   margin: 20px 0;
+   text-align: center;
+}
+
+.admin-button {
+   background-color: #a380c2;
+   color: white;
+   padding: 8px 15px;
+   margin: 0 10px;
+   border-radius: 3px;
+   text-decoration: none;
+}
+
+.admin-button:hover {
+   background-color: #8a6bb1;
+}
