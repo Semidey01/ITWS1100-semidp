@@ -20,7 +20,7 @@
             </div>
         </section>
 
-        <?php include('../quiz3/footer.php'); ?>
+        <?php include('quiz3/footer.php'); ?>
 
     </body>
 </html>
