@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('conn.php');
 include('quiz3/menu.php');
 
@@ -7,14 +8,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
-    // SIMPLE PLAIN TEXT CHECK (for assignment only)
-    $result = $db->query("SELECT * FROM mySiteUsers WHERE username = '$username'");
+    // Use prepared statement to prevent SQL injection
+    $stmt = $db->prepare("SELECT * FROM mySiteUsers WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
     
     if ($result->num_rows == 1) {
         $user = $result->fetch_assoc();
         
         // Plain text comparison
-        if ($user['user_password'] == $password) { // Using == instead of === for flexibility
+        if ($user['user_password'] == $password) {
             $_SESSION['username'] = $user['username'];
             $_SESSION['user_role'] = $user['user_role'];
             header("Location: index.php");

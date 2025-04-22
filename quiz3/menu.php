@@ -21,7 +21,7 @@ function buildMenu() {
     
     if (isset($_SESSION['username'])) {
         // Add admin link if user is admin
-        if ($_SESSION['user_role'] === 'admin') {
+        if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin') {
             $menuOutput .= '<li><a href="admin_labs.php">Manage Labs</a></li>';
         }
         $menuOutput .= '<li><a href="logout.php">Logout (' . htmlspecialchars($_SESSION['username']) . ')</a></li>';
@@ -32,4 +32,3 @@ function buildMenu() {
     $menuOutput .= '</ul></div>';
     return $menuOutput;
 }
-?>
