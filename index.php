@@ -8,32 +8,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
-    try {
-        $stmt = $db->prepare("SELECT * FROM mySiteUsers WHERE username = ?");
-        if (!$stmt) {
-            throw new Exception("Database error: " . $db->error);
-        }
+    // SIMPLE PLAIN TEXT CHECK (for assignment only)
+    $result = $db->query("SELECT * FROM mySiteUsers WHERE username = '$username'");
+    
+    if ($result->num_rows == 1) {
+        $user = $result->fetch_assoc();
         
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows == 1) {
-            $user = $result->fetch_assoc();
-            if (password_verify($password, $user['user_password'])) {
-                $_SESSION['username'] = $user['username'];
-                $_SESSION['user_role'] = $user['user_role'];
-                header("Location: index.php");
-                exit();
-            } else {
-                $login_error = "Invalid password";
-            }
+        // Plain text comparison
+        if ($user['user_password'] == $password) { // Using == instead of === for flexibility
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['user_role'] = $user['user_role'];
+            header("Location: index.php");
+            exit();
         } else {
-            $login_error = "Username not found";
+            $login_error = "Invalid password";
         }
-    } catch (Exception $e) {
-        error_log($e->getMessage());
-        $login_error = "Database error occurred";
+    } else {
+        $login_error = "Username not found";
     }
 }
 
