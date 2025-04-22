@@ -32,34 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="../Lab3/css/top.css">
-    <style>
-        .login-form {
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #1e2124;
-            border-radius: 5px;
-        }
-        .login-form input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 3px;
-            border: 1px solid #ccc;
-        }
-        .login-form button {
-            background-color: #4f8fc5;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-        .error {
-            color: #ff6b6b;
-            margin-bottom: 15px;
-        }
-    </style>
+    <link rel="stylesheet" href="resources/login.css">
 </head>
 <body>
     <?php echo buildMenu(); ?>

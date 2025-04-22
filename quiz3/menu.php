@@ -29,7 +29,7 @@ function buildMenu() {
             $menuOutput .= '<li><a href="admin.php">Admin</a></li>';
         }
     } else {
-        $menuOutput .= '<li><a href="login.php">Login</a></li>';
+        $menuOutput .= '<li><a href="quiz3/login.php">Login</a></li>';
     }
     
     $menuOutput .= '</ul></div>';
