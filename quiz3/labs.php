@@ -2,15 +2,15 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../css/top.css">
-        <link rel="stylesheet" href="../css/labs.css">
+        <link rel="stylesheet" href="../Lab3/css/top.css">
+        <link rel="stylesheet" href="../Lab3/css/labs.css">
         <title>Pablo Semidey Website - Labs</title>
     </head>
     <body>
         <?php 
         // Include database connection and menu functions
-        include('../../quiz3/conn.php');
-        include('../../quiz3/menu.php');
+        include('conn.php');
+        include('menu.php');
         
         // Display the navigation menu
         echo buildMenu();
