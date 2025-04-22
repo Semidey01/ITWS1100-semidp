@@ -3,11 +3,6 @@ session_start();
 include('conn.php');
 include('quiz3/menu.php');
 
-<?php
-session_start();
-include('conn.php');
-include('quiz3/menu.php');
-
 // Handle login form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
     $username = trim($_POST['username']);
@@ -58,6 +53,7 @@ if (isset($_GET['logout'])) {
         <link rel="stylesheet" href="Lab3/css/homepage.css">
         <link rel="stylesheet" href="quiz3/resources/footer.css">
         <link rel="stylesheet" href="quiz3/resources/login.css">
+        <script src="quiz3/login.js"></script>
         <title>Pablo Semidey Website</title>
     </head>
     <body>
